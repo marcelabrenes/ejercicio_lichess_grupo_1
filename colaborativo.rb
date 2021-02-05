@@ -25,12 +25,12 @@ http.use_ssl = true
 http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 request = Net::HTTP::Get.new(url)
 response = http.request(request)
-response.read_body
+JSON.parse(response.read_body)
 end
 
 live_streamers = getLiveStreamers(n)
 puts live_streamers
-
+puts '------------'
 # 2. TOMAR LOS DATOS COMPLETOS DE TODOS LOS USUARIOS COGIDOS EN EL PUNTO 1
 #
 # El siguiente método recibe un ID como parametro, luego lee los datos de otro archivo
